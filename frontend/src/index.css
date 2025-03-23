@@ -1,13 +1,91 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+
+*{
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.home{
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: url("https://www.higherlowergame.com/images/background/xlarge.jpg");
+  display: flex;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  width: 100%;
+  margin-top: 10%;
+}
+
+.logo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20%;
+}
+
+.logo-text{
+  color: aliceblue;
+  justify-content: center;
+  font-family:'Merriweather';
+  font-weight: 900;
+  font-size-adjust: .6;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.logo-text2{
+  color: aliceblue;
+  justify-content: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 900;
+  font-size-adjust: .7;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.createUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.createUser label {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.createUser input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.createUser button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.createUser button:hover {
+  background-color: #e55b00;
 }
