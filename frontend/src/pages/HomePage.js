@@ -1,26 +1,41 @@
 import React, {useState} from 'react'
 import '../index.css'
 import logo from "../assets/logo4.png"
-import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 const HomePage = () => {
     const [username, setUsername] = useState("");
+    const [error, setError] = useState(null);
+
+    const navigate = useNavigate()
 
     const handleCreateUser = async (e) => {
-      e.preventDefault();
-  
-      try {
-        const response = await axios.post("/api/users/createUser", { username });
-  
-        localStorage.setItem("username", username);
-        localStorage.setItem("userId", response.data._id);
+        e.preventDefault()
 
+        const user = {username};
+        const response = await fetch('/api/users', {
+            method:'POST',
+            body: JSON.stringify(user),
+            headers:{
+                'content-Type':'application/json'
+            }
+        })
+        const json = await response.json()
+        if(!response.ok){
+            setError(json.error)
+            return
+        }
+        if(response.ok){
+            setError(null)
+            setUsername('')
+            console.log('user created', json)
 
-        window.location.href = "/game";
-      } catch (err) {
-        console.error(err);
-      }
-    };  
+            localStorage.setItem("username", username)
+            localStorage.setItem("userId", json._id)
+
+            navigate('/game');     //redirect to gamepage
+        }
+    }
 
     return(
         <div className="home">
@@ -39,7 +54,9 @@ const HomePage = () => {
                     value={username}
                     />
                     <button type="submit">Start Game</button>
+                    {error && <div className="error">{error}</div>}
                 </form>
+                <div className='Api_text'>Powered by Serp API and Google API</div>
         </div>
     )
 }

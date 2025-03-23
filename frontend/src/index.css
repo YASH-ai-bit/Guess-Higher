@@ -20,7 +20,7 @@
   justify-content: center;
   height: 60vh;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .logo{
@@ -28,7 +28,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20%;
 }
 
 .logo-text{
@@ -56,13 +55,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 1%;
 }
 
 .createUser label {
-  font-size: 1.2rem;
+  font-size: .8rem;
   color: #fff;
   margin-bottom: 5px;
+  font-family: 'Merriweather';
+  justify-content: left;
 }
 
 .createUser input {
@@ -84,8 +85,27 @@
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s ease;
+  margin-top: 1%;
 }
 
 .createUser button:hover {
   background-color: #e55b00;
+}
+
+.Api_text {
+  position: absolute;
+  bottom: 1px;
+  right: 10px;
+  font-size: 12px; 
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.error {
+  color: #ff4d4d;
+  font-weight: bold;
+  margin-top: 10px;
+  display: block; 
+  font-family: Arial, sans-serif;
+  font-weight: 200;
 }
