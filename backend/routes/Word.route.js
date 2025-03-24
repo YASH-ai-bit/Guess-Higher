@@ -1,8 +1,8 @@
 import express, { Router } from "express";
-import { getWord } from "../controllers/Word.controller.js";
+import { getWords} from "../controllers/Word.controller.js";
 
 const router = express.Router();
 
-router.get("/:id", getWord);
+router.get("/:id?", getWords);
 
 export default router;

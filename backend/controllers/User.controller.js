@@ -33,7 +33,7 @@ export const createUser = async (req, res) => {
     res.status(200).json(user);
   } catch (error) {
     console.error("Error creating user:", error.message);
-    res.status(400).json({ message: "Server error" });
+    res.status(400).json({ error: "Create a username!" });
   }
 };
 
