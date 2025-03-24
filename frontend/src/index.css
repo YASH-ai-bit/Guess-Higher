@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap");
 
-*{
-  margin : 0;
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.home{
+.home {
   flex-direction: column;
   height: 100vh;
   width: 100%;
@@ -14,7 +14,8 @@
   display: flex;
 }
 
-.container{
+/* For logo + Extra text */
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,33 +24,36 @@
   margin-top: 5%;
 }
 
-.logo{
+/*For logo*/
+.logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.logo-text{
+/* For logo text */
+.logo-text {
   color: aliceblue;
   justify-content: center;
-  font-family:'Merriweather';
+  font-family: "Merriweather";
   font-weight: 900;
-  font-size-adjust: .6;
+  font-size-adjust: 0.6;
   text-align: center;
   margin-top: 5%;
 }
 
-.logo-text2{
+.logo-text2 {
   color: aliceblue;
   justify-content: center;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 900;
-  font-size-adjust: .7;
+  font-size-adjust: 0.7;
   text-align: center;
   margin-top: 10%;
 }
 
+/* For Username Input */
 .createUser {
   display: flex;
   flex-direction: column;
@@ -59,10 +63,10 @@
 }
 
 .createUser label {
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: #fff;
   margin-bottom: 5px;
-  font-family: 'Merriweather';
+  font-family: "Merriweather";
   justify-content: left;
 }
 
@@ -92,11 +96,12 @@
   background-color: #e55b00;
 }
 
+/*Additional texts and errors*/
 .Api_text {
   position: absolute;
   bottom: 1px;
   right: 10px;
-  font-size: 12px; 
+  font-size: 12px;
   color: white;
   font-family: Arial, sans-serif;
 }
@@ -105,7 +110,7 @@
   color: #ff4d4d;
   font-weight: bold;
   margin-top: 10px;
-  display: block; 
+  display: block;
   font-family: Arial, sans-serif;
   font-weight: 200;
 }

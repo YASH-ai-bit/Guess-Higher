@@ -1,7 +1,5 @@
 import React from "react";
 
-const GamePage = () => {
+const GamePage = () => {};
 
-}
-
-export default GamePage
+export default GamePage;

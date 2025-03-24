@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { getJson } from "serpapi";  //using SerpApi for collecting data for images and searchCounts
+import { getJson } from "serpapi"; //using SerpApi for collecting data for images and searchCounts
 import dotenv from "dotenv";
 import Word from "./models/Word.model.js";
 
