@@ -1,16 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../index.css';
+import './GamePage.css';
 
 const GamePage = () => {
     const [wordPair, setWordPair] = useState(null);
+    const [username] = useState(localStorage.getItem('username'))
     const [score, setScore] = useState(0);
-    const [highScore, setHighScore] = useState(() => localStorage.getItem('highScore') || 0);
+    const [highScore, setHighScore] = useState(() => {
+        const savedHighScore = localStorage.getItem(`highScore_${username}`)
+        return savedHighScore ? parseInt(savedHighScore) : 0 
+    });
     const [isFetching, setIsFetching] = useState(false);
 
     const fetchWords = async () => {
         setIsFetching(true);
+        const words = {wordPair}
         try {
-            const response = await fetch('/api/words/random-pair');
+            const response = await fetch('/api/words', {
+                method: 'GET',
+                headers: {
+                    "content-Type": "application/json",
+                },
+            });
             const data = await response.json();
             setWordPair(data);
         } catch (error) {
@@ -26,7 +36,7 @@ const GamePage = () => {
 
     const handleGuess = (choice) => {
         if (!wordPair || isFetching) return;
-        const correctChoice = wordPair.word1.count >= wordPair.word2.count ? 'word1' : 'word2';
+        const correctChoice = wordPair.word1.searchCount >= wordPair.word2.searchCount ? 'word1' : 'word2';
         if (choice === correctChoice) {
             setScore((prevScore) => prevScore + 1);
             fetchWords();
@@ -50,16 +60,15 @@ const GamePage = () => {
                     <div 
                         className="word-card left" 
                         onClick={() => handleGuess('word1')} 
-                        style={{ backgroundImage: `url(${wordPair.word1.image})` }}
+                        style={{ backgroundImage: `url(${wordPair.word1.imageUrl})` }}
                     >
                         <span className="word-text">{wordPair.word1.word}</span>
-                        <span className="word-count">{wordPair.word1.count.toLocaleString()} average monthly searches</span>
+                        <span className="word-count">{wordPair.word1.searchCount.toLocaleString()} </span><br/><span className='word-count-text'>average monthly searches</span>
                     </div>
-                    <div className="vs-circle">VS</div>
                     <div 
                         className="word-card right" 
                         onClick={() => handleGuess('word2')} 
-                        style={{ backgroundImage: `url(${wordPair.word2.image})` }}
+                        style={{ backgroundImage: `url(${wordPair.word2.imageUrl})` }}
                     >
                         <span className="word-text">{wordPair.word2.word}</span>
                     </div>

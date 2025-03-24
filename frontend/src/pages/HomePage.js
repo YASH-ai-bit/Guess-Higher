@@ -27,13 +27,17 @@ const HomePage = () => {
     }
     if (response.ok) {
       setError(null);
-      setUsername("");
       console.log("user created", json);
 
       localStorage.setItem("username", username);
       localStorage.setItem("userId", json._id);
 
+      if (!localStorage.getItem(`highScore_${username}`)) {          //this handles whether the same device has created new username
+        localStorage.setItem(`highScore_${username}`, 0);            //or using the old one , if new set highScore to 0
+      }
+
       navigate("/game"); //redirect to gamepage
+      setUsername("");
     }
   };
 
