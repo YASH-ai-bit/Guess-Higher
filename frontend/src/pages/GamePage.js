@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./GamePage.css";
 
 const GamePage = () => {
@@ -10,6 +11,7 @@ const GamePage = () => {
     return savedHighScore ? parseInt(savedHighScore) : 0;
   });
   const [isFetching, setIsFetching] = useState(false);
+  const navigate = useNavigate();
 
   const fetchWords = async () => {
     setIsFetching(true);
@@ -69,6 +71,7 @@ const GamePage = () => {
         }
       }
       setScore(0);
+      navigate("/reset", {state : {score}})
     }
   };
 
