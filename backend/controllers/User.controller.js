@@ -39,20 +39,21 @@ export const createUser = async (req, res) => {
 
 export const updateHighScore = async (req, res) => {
   const { id } = req.params;
+  const {highScore} = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).json({ error: "no such user" });
   }
 
-  const user = await User.findOneAndUpdate(
-    { _id: id },
-    {
-      ...req.body,
-    }
-  );
-
+  const user = await User.findById(id);
   if (!user) {
-    return res.status(400).json({ error: "no such user" });
+    return res.status(400).json({ error: "No such user" });
+  }
+
+  if (highScore > user.highScore) {
+    user.highScore = highScore;
+    await user.save();
+    return res.status(200).json({ message: "High score updated!", user });
   }
 
   res.status(200).json(user);

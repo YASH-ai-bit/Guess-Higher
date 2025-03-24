@@ -9,36 +9,47 @@ const HomePage = () => {
 
   const navigate = useNavigate();
 
-  const handleCreateUser = async (e) => {
+  const handleUserLogin = async (e) => {
     e.preventDefault();
+    setError(null);
 
+    const existingUsers = JSON.parse(localStorage.getItem("allUsers")) || [];      //created for checking whether users are entered into local
+                                                                                   //storage or not..
+    // Check if username exists
+    if (existingUsers.includes(username)) {
+      console.log("Logging in as", username);
+      localStorage.setItem("currentUsername", username);
+      navigate("/game");
+      return;
+    }
+
+    // If username doesn't exist, create a new user
     const user = { username };
     const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify(user),
-      headers: {
-        "content-Type": "application/json",
-      },
+      headers: { "content-Type": "application/json" },
     });
     const json = await response.json();
+
     if (!response.ok) {
       setError(json.error);
       return;
     }
-    if (response.ok) {
-      setError(null);
-      console.log("user created", json);
 
-      localStorage.setItem("username", username);
-      localStorage.setItem("userId", json._id);
+    console.log("User created", json);
+    existingUsers.push(username);
+    localStorage.setItem("allUsers", JSON.stringify(existingUsers));         
 
-      if (!localStorage.getItem(`highScore_${username}`)) {          //this handles whether the same device has created new username
-        localStorage.setItem(`highScore_${username}`, 0);            //or using the old one , if new set highScore to 0
-      }
+    localStorage.setItem("currentUsername", username);
+    localStorage.setItem(`user_${username}_userId`, json._id);
 
-      navigate("/game"); //redirect to gamepage
-      setUsername("");
+    if (!localStorage.getItem(`highScore_${username}`)) {
+      localStorage.setItem(`highScore_${username}`, 0);
     }
+
+    setUsername("");
+    navigate("/game");
   };
 
   return (
@@ -52,7 +63,7 @@ const HomePage = () => {
           <span className="logo-text2">What's Googled More?</span>
         </div>
       </div>
-      <form className="createUser" onSubmit={handleCreateUser}>
+      <form className="createUser" onSubmit={handleUserLogin}>
         <label>Enter UserName :</label>
         <input
           type="text"
