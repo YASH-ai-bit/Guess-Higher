@@ -22,7 +22,7 @@ app.use("/api/users", userRoutes);
 
 //connect db
 mongoose.connect(process.env.MONGO_URI).then(() => {
-  app.listen(PORT, () => {
+  app.listen([PORT, "https://guess-higher-l868-5nh96r5i9-yashs-projects-fcc2a3f8.vercel.app"], () => {
     console.log("Connected to db andListening on port 8080");
   });
 });
