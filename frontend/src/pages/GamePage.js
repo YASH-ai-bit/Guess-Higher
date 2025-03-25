@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import "./GamePage.css";
 
 const GamePage = () => {
-  const BACKEND_URL = process.env.BACKEND_URL;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [wordPair, setWordPair] = useState(null);
   const [currentUsername] = useState(localStorage.getItem("currentUsername"));
   const [score, setScore] = useState(0);
