@@ -20,8 +20,6 @@ app.use((req, res, next) => {
 app.use(
   cors({
     origin: ["http://localhost:8080", "https://guess-higher-l868.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 
