@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 app.use(
   cors({
-    origin: ["http://localhost:8080", "https://guess-higher-szz1.vercel.app"],
+    origin: ["http://localhost:300-", "https://guess-higher-2rru.vercel.app"],
   })
 );
 
