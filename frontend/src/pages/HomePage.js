@@ -4,6 +4,7 @@ import logo from "../assets/logo4.png";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const BACKEND_URL = process.env.BACKEND_URL;
   const [username, setUsername] = useState("");
   const [error, setError] = useState(null);
 
@@ -25,7 +26,7 @@ const HomePage = () => {
 
     // If username doesn't exist, create a new user
     const user = { username };
-    const response = await fetch("/api/users", {
+    const response = await fetch(`${BACKEND_URL}/api/users`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: { "content-Type": "application/json" },

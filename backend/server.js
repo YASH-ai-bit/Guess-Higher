@@ -3,9 +3,10 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import wordRoutes from "./routes/Word.route.js";
 import userRoutes from "./routes/User.route.js";
+import cors from "cors";
 
 dotenv.config();
-const PORT = process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL;
 
 const app = express();
 
@@ -16,13 +17,21 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(
+  cors({
+    origin: ["http://localhost:8080", "https://guess-higher-l868.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+  })
+);
+
 //routes
 app.use("/api/words", wordRoutes);
 app.use("/api/users", userRoutes);
 
 //connect db
 mongoose.connect(process.env.MONGO_URI).then(() => {
-  app.listen(BASE_URL, () => {
+  app.listen(8080, () => {
     console.log("Connected to db andListening on port 8080");
   });
 });
