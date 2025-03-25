@@ -18,7 +18,7 @@ const ResetPage = () => {
   else if (5 < score <= 10) videoSrc = video2;
   else if (10 < score <= 15) videoSrc = video3;
   else if (15 < score <= 20) videoSrc = video4;
-  else videoSrc = video5;
+  else if(score >=20)videoSrc = video5;
 
   const MessageBasedOnScore = (score) => {
     if (score === 0) return "Zero? Seriously? Did you even try?";
