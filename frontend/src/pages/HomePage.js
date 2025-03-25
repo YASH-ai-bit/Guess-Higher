@@ -4,7 +4,7 @@ import logo from "../assets/logo4.png";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const BACKEND_URL = <process className="env REACT_APP_BACKEND_URL"></process>;
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [username, setUsername] = useState("");
   const [error, setError] = useState(null);
 
