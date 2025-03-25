@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./GamePage.css";
+import dotenv from dotenv;
+
+dotenv.config()
 
 const GamePage = () => {
   const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "../index.css";
 import logo from "../assets/logo4.png";
 import { useNavigate } from "react-router-dom";
+import dotenv from dotenv
+
+dotenv.config()
 
 const HomePage = () => {
   const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
