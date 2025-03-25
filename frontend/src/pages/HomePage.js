@@ -4,7 +4,7 @@ import logo from "../assets/logo4.png";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
-  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const REACT_APP_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const [username, setUsername] = useState("");
   const [error, setError] = useState(null);
 
@@ -15,7 +15,7 @@ const HomePage = () => {
     setError(null);
 
     const existingUsers = JSON.parse(localStorage.getItem("allUsers")) || []; //created for checking whether users are entered into local
-    //storage or not..
+                                                                              //storage or not..
     // Check if username exists
     if (existingUsers.includes(username)) {
       console.log("Logging in as", username);
@@ -26,7 +26,7 @@ const HomePage = () => {
 
     // If username doesn't exist, create a new user
     const user = { username };
-    const response = await fetch(`${BACKEND_URL}/api/users`, {
+    const response = await fetch(`${REACT_APP_BACKEND_URL}/api/users`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: { "content-Type": "application/json" },
