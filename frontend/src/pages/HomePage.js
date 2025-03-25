@@ -13,8 +13,8 @@ const HomePage = () => {
     e.preventDefault();
     setError(null);
 
-    const existingUsers = JSON.parse(localStorage.getItem("allUsers")) || [];      //created for checking whether users are entered into local
-                                                                                   //storage or not..
+    const existingUsers = JSON.parse(localStorage.getItem("allUsers")) || []; //created for checking whether users are entered into local
+    //storage or not..
     // Check if username exists
     if (existingUsers.includes(username)) {
       console.log("Logging in as", username);
@@ -39,7 +39,7 @@ const HomePage = () => {
 
     console.log("User created", json);
     existingUsers.push(username);
-    localStorage.setItem("allUsers", JSON.stringify(existingUsers));         
+    localStorage.setItem("allUsers", JSON.stringify(existingUsers));
 
     localStorage.setItem("currentUsername", username);
     localStorage.setItem(`user_${username}_userId`, json._id);

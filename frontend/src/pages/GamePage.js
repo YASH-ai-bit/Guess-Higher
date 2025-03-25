@@ -49,7 +49,9 @@ const GamePage = () => {
         localStorage.setItem(`highScore_${currentUsername}`, score);
         setHighScore(score);
 
-        const userId = localStorage.getItem(`user_${localStorage.getItem('currentUsername')}_userId`);
+        const userId = localStorage.getItem(
+          `user_${localStorage.getItem("currentUsername")}_userId`
+        );
 
         try {
           const response = await fetch(`/api/users/${userId}`, {
@@ -65,13 +67,12 @@ const GamePage = () => {
           }
 
           const data = await response.json();
-
         } catch (error) {
           console.error("Failed to fetch highScore:", error);
         }
       }
       setScore(0);
-      navigate("/reset", {state : {score}})
+      navigate("/reset", { state: { score } });
     }
   };
 

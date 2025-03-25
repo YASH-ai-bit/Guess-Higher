@@ -111,6 +111,65 @@
   font-weight: bold;
   margin-top: 10px;
   display: block;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: 200;
+}
+
+/* Responsive styles --> Made With AI(responsiveness only) */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .logo{
+    margin-top: 10%;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .logo-text2 {
+    font-size: 1rem;
+  }
+
+  .createUser{
+    margin-top: 10%;
+  }
+
+  .createUser input {
+    width: 200px;
+
+  }
+
+  .createUser button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .logo-text2 {
+    font-size: 0.8rem;
+  }
+
+  .createUser input {
+    width: 150px;
+    padding: 8px;
+  }
+
+  .createUser button {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .Api_text {
+    font-size: 10px;
+  }
 }

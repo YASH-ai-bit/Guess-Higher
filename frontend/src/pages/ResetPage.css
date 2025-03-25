@@ -1,59 +1,101 @@
 .reset-page {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .background-gif {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: blur(9px);
-  }
-  
-  
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  font-family: "Arial", sans-serif;
+  flex-direction: column;
+}
+
+.background-gif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(9px);
+}
+
+.reset-content {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.reset-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fff;
+  font-style: italic;
+}
+
+/* making a transparent background too see gif */
+.reset-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.reset-buttons button {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  background: transparent;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  transition: 0.3 ease;
+  text-align: center;
+}
+
+.reset-buttons button:hover {
+  background: #fff;
+  transform: scale(1.1);
+  color: #000;
+}
+
+.reset-buttons button:active {
+  transform: scale(0.9);
+}
+
+/* Responsive adjustments --> Made With AI (responsiveness only) */
+@media (max-width: 768px) {
   .reset-content {
-    font-size: 4rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 2rem;
   }
-  
+
   .reset-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #fff;
-    font-style: italic
+    font-size: 1.5rem;
   }
-  
-  /* making a transparent background too see gif */
-   .reset-buttons button {
-    display: flex;
-    flex-direction: row;
-    border: 2px solid #fff;
-    border-radius: 25px;
-    background: transparent;
-    padding: 10px 20px;
+
+  .reset-buttons button {
+    font-size: 1rem;
+    padding: 8px 16px;
+    width: 150px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .reset-content {
+    font-size: 1.5rem;
+  }
+
+  .reset-content h1 {
     font-size: 1.2rem;
-    transition: 0.3 ease;
-    gap:20px;
-   }
-  
-  .reset-buttons button:hover {
-    background: #fff;
-    transform: scale(1.1);
-    color: #000;
   }
-  
-  .reset-buttons button:active {
-    transform: scale(0.9);
+
+  .reset-buttons button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    width: 120px;
+    justify-content: center;
   }
-  
+}

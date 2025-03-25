@@ -23,12 +23,12 @@ const ResetPage = () => {
   const MessageBasedOnScore = (score) => {
     if (score === 0) return "Zero? Seriously? Did you even try?";
     if (score <= 5) return "Ouch. I’ve seen potatoes make better guesses.";
-    if (score <= 10) return "Not bad, but not impressive either. You're stuck in 'averageville.'";
+    if (score <= 10)
+      return "Not bad, but not impressive either. You're stuck in 'averageville.'";
     if (score <= 15) return "You're getting good at this... or just lucky.";
     if (score <= 20) return "Now we're talking! Almost genius-level.";
     return "🔥 LEGENDARY! You're on fire!";
   };
-
 
   return (
     <div className="reset-page">
@@ -40,7 +40,9 @@ const ResetPage = () => {
 
       <div className="reset-content">
         <h1>Game Over!</h1>
-        <h2>Your Score: <span style={{color : "#FFD700"}}>{score}</span></h2>
+        <h2>
+          Your Score: <span style={{ color: "#FFD700" }}>{score}</span>
+        </h2>
         <p>{MessageBasedOnScore(score)}</p>
 
         <div className="reset-buttons">
